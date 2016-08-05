@@ -1,0 +1,51 @@
+{
+  "predef": [
+    "phantom",
+    "module",
+    "require",
+    "__dirname",
+    "process",
+    "console",
+    "it",
+    "describe",
+    "before",
+    "beforeEach",
+    "after",
+    "afterEach"
+  ],
+
+  // enforcing
+  "bitwise": false,
+  "camelcase": false,
+  "curly": true,
+  "eqeqeq": true,
+  "esnext": true,
+  "forin": false,
+  "immed": true,
+  "indent": 2,
+  "latedef": true,
+  "maxlen": 90,
+  "maxparams": 5,
+  "newcap": true,
+  "noarg": true,
+  "nocomma": true,
+  "noempty": true,
+  "laxbreak": true,
+  "plusplus": true,
+  "quotmark": "single",
+  "regexp": true,
+  "strict": true,
+  "undef": true,
+  "unused": true,
+  "white": true,
+
+  // environments
+  "browser": true,
+  "devel": true,
+  "node": true,
+  "jquery": true,
+
+  // custom globals
+  "globals" : { 
+  }  
+}

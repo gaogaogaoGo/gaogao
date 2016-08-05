@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+/*!
+ * project name: emtp_m_www
+ * name:         signin.scss
+ * version:      v0.0.1
+ * author:       gao
+ * date:         2016/8/3
+ */
+
+// @important "_mixin.scss"
+@important "_common.scss";
+@mixin size($width, $height){
+	width: $width;
+	height: $height;
+}
+body {
+	font-size: 20px;
+	color: #fff;
+	background: #F98A53;
+}
+.top {
+	width:100%;
+	text-align: center;
+	padding-top: 50px;
+
+	h1 {
+		font-size: 50px;
+		font-weight: 900;
+		color: #fff;
+	}
+}
+
+.signin {
+	@include size(38rem, 50rem);
+	margin: 50px auto;
+	background: url(../img/bg.jpg) no-repeat center;
+	background-size: 100% 100%;
+
+	.signin-cam{
+		background: url(../img/cam.png) no-repeat bottom;
+		/*position: absolute;*/
+		width: 100%;
+		height: 200px;
+	}
+
+	.signin-input {
+		background: #fff;
+		margin: 50px auto 0;
+		// @include size(400px, 140px);
+		border-radius: 4px;
+		position: relative;
+
+		img{
+		position: absolute;
+		top: 22px;
+		left: 20px;
+		}
+
+		.input-top,.input-bottom {
+			@include size(100%, 70px);
+			text-align: right;
+		}
+		.input-top{
+			border-bottom: 1px solid #C0C3C8;
+		}
+
+		input {
+		  @include size(85%,95%);
+		  font-size: 20px;		  
+		}
+
+		input[value]{
+			font-size: 16px;
+		}
+	}
+
+	.sign-in {
+		@include size(400px,60px);
+		margin: 20px auto;
+		border:4px solid #F9671E;
+		border-radius: 7px;
+		background: #F9671E;
+
+		p {
+			font-size: 30px;
+		  text-align: center;
+		  padding: 7px;
+		}
+
+		&:hover {
+			background: none;
+			color: #F9671E;
+		}
+	}
+
+	.Facebook, .Twitter{
+		position:relative;
+		@include size(400px, 60px);
+		margin: 0px auto;
+		border-radius: 7px;
+
+		p {
+			font-size: 23px;
+		  padding: 13px;
+		  text-align: center;
+		}
+	}
+
+	.Facebook{
+		margin-top:80px;
+		background: #3B5998;
+	}
+
+	.Twitter{
+		margin-top:20px;
+		background: #1AB2E8;
+	}
+
+	.cover[id="right"] {
+		right: 0;
+		background: #1AB2E8;
+	}
+
+	.cover {
+		position: absolute;
+		top: 0px;
+		height: 100%;
+		width: 4%;
+		background: #3B5998;
+		border-radius: 7px;
+
+	  transition:width 1s,background 1s,opacity 1s;
+		-moz-transition:width 1s,background 1s,opacity 1s; /* Firefox 4 */
+		-webkit-transition:width 1s,background 1s,opacity 1s; /* Safari and Chrome */
+		-o-transition:width 1s,background 1s,opacity 1s; /* Opera */
+	}
+
+	.Facebook:hover .cover{	
+		background-color: #000;
+		opacity: 0.2;
+		width: 100%;	
+	}
+	.Twitter:hover .cover{
+		background-color: #000;
+		opacity: 0.2;
+		width: 100%;	
+	}
+}
+
+
+
+
+
