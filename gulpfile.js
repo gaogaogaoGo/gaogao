@@ -28,6 +28,7 @@ var $    = require('gulp-load-plugins')({scope: 'devDependencies'});
 // var rename = require('gulp-rename');//重命名
 var browserSync = require('browser-sync');
 var reload  = browserSync.reload;
+var runSequence = require('run-sequence');
 
 //clean .temp  del 删除文件、文件夹
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
@@ -40,13 +41,6 @@ gulp.task('jshint', function () {
 	  .pipe($.jshint.reporter('jshint-stylish'))
 	  .pipe((!browserSync.active, $.jshint.reporter('fail')));
 });
-
-
-// gulp.task('copy', function () {
-// 	return gulp.src(['develop/*.*', '!develop/**/*.html', '!develop/**/*.scss'])
-// 		.pipe(gulp.dest('.tmp/'))
-// 		.pipe(gulp.dest('dist/'));	
-// })
 
 //sass编译
 gulp.task('sass', function () {
@@ -77,6 +71,7 @@ gulp.task('sass', function () {
 	    .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
 			.pipe($.sourcemaps.write('.'))
 			.pipe(gulp.dest('.tmp/css/'))
+			.pipe(gulp.dest('dist/css'))
 			.pipe(reload({stream: true}));		
 });
 
@@ -87,6 +82,7 @@ gulp.task('scripts', function () {
 			.pipe($.sourcemaps.init())
     	.pipe($.sourcemaps.write('.'))
 			.pipe(gulp.dest('.tmp/js'))
+			.pipe(gulp.dest('dist/js'))
 			.pipe(reload({stream: true}));
 
 });
@@ -103,7 +99,10 @@ gulp.task('images', function () {
 });
 
 gulp.task('html',['sass', 'scripts'], function () {
-	return gulp.src('develop/html/*.html')
+	return gulp.src([
+		'develop/html/*.html',
+		'!develop/html/_*.html',
+		])
 			/*ejs is unnecessary, here you can use gulp-file-include
 			html代码的维护性和可复用性 在html中可以引用其他html
 			<%-include include/header  %>*/
@@ -124,6 +123,7 @@ gulp.task('html',['sass', 'scripts'], function () {
 
 gulp.task('serve',['sass', 'scripts', 'html', 'images'], function () {
 	browserSync.init({
+		  port: 3000,
 		server: {
 			baseDir: ['.tmp', 'develop'] //引入目录和开发目录
 		}
@@ -133,4 +133,31 @@ gulp.task('serve',['sass', 'scripts', 'html', 'images'], function () {
   gulp.watch('develop/js/*.js', ['jshint', 'scripts']);
 });
 
-gulp.task('default', ['clean']);
+//doc task
+gulp.task('doc', function () {
+  return gulp.src('./develop/**/*.js')
+    .pipe($.jsdoc('dist/doc'));
+});
+
+gulp.task('build', function (cb) {
+	runSequence(
+    'clean',
+    'doc',
+    'html',
+    'images',
+    function (err) {
+      if (err) {
+        console.log(err.message);
+      }
+      else {
+        console.log('EMTP: RELEASE FINISHED SUCCESSFULLY');
+      }
+
+      cb(err);
+    }
+  );
+});
+
+gulp.task('default', ['clean'], function () {
+	gulp.start('build');
+});
