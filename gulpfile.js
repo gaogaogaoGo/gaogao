@@ -31,7 +31,7 @@ var reload  = browserSync.reload;
 var runSequence = require('run-sequence');
 
 //clean .temp  del 删除文件、文件夹
-gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
+gulp.task('clean', require('del').bind(null, ['dist']));
 
 //检查js脚本任务
 gulp.task('jshint', function () {
@@ -70,7 +70,6 @@ gulp.task('sass', function () {
 	    }).on('error', $.sass.logError))
 	    .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
 			.pipe($.sourcemaps.write('.'))
-			.pipe(gulp.dest('.tmp/css/'))
 			.pipe(gulp.dest('dist/css'))
 			.pipe(reload({stream: true}));		
 });
@@ -78,13 +77,11 @@ gulp.task('sass', function () {
 //js
 gulp.task('scripts', function () {
 	return gulp.src('develop/js/**/*.js')
-			.pipe($.plumber()) 
-			.pipe($.sourcemaps.init())
+		.pipe($.plumber()) 
+		.pipe($.sourcemaps.init())
     	.pipe($.sourcemaps.write('.'))
-			.pipe(gulp.dest('.tmp/js'))
-			.pipe(gulp.dest('dist/js'))
-			.pipe(reload({stream: true}));
-
+		.pipe(gulp.dest('dist/js'))
+		.pipe(reload({stream: true}));
 });
 
 gulp.task('images', function () {
@@ -117,7 +114,6 @@ gulp.task('html',['sass', 'scripts'], function () {
 	    //  basepath: '@file'
 	    //}))
 			.pipe(gulp.dest('dist/html'))
-			.pipe(gulp.dest('.tmp/html'))
 			.pipe(reload({stream: true}));				
 });
 
@@ -125,12 +121,12 @@ gulp.task('serve',['sass', 'scripts', 'html', 'images'], function () {
 	browserSync.init({
 		  port: 3000,
 		server: {
-			baseDir: ['.tmp', 'develop'] //引入目录和开发目录
+			baseDir: ['dist', 'develop'] //引入目录和开发目录
 		}
 	});
 	gulp.watch('develop/**/*.html', ['html']);
-  gulp.watch('develop/**/*.scss', ['sass']);
-  gulp.watch('develop/js/*.js', ['jshint', 'scripts']);
+  	gulp.watch('develop/**/*.scss', ['sass']);
+  	gulp.watch('develop/js/*.js', ['jshint', 'scripts']);
 });
 
 //doc task
