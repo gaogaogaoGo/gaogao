@@ -1,63 +1,63 @@
-@charset "UTF-8";
-/*!
- * project name: emtp_m_www
- * name:         _common.scss
- * version:      v0.0.1
- * author:       gao
- * date:         2016/8/3
- */
+// @charset "UTF-8";
+// /*!
+//  * project name: emtp_m_www
+//  * name:         _common.scss
+//  * version:      v0.0.1
+//  * author:       gao
+//  * date:         2016/8/3
+//  */
 
- body, html {
-  text-align: left;
-  height: 100%; /*高度必须为100%*/
-  width: 100%;
-  font-family: PingFang SC, Roboto, HelveticaNeue, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-weight: normal;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-align: center;
-}
+//  body, html {
+//   text-align: left;
+//   height: 100%; /*高度必须为100%*/
+//   width: 100%;
+//   font-family: PingFang SC, Roboto, HelveticaNeue, Helvetica, Arial, sans-serif;
+//   font-size: 16px;
+//   font-weight: normal;
+//   display: -webkit-box;
+//   -webkit-box-orient: vertical;
+//   -webkit-box-align: center;
+// }
 
-body {
-  width: $layout-with;
-  min-height: 100%;
-  height: auto;
-}
+// body {
+//   width: $layout-with;
+//   min-height: 100%;
+//   height: auto;
+// }
 
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  -webkit-user-select: text;
-  word-break: normal;
-}
+// * {
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+//   outline: 0;
+//   -webkit-user-select: text;
+//   word-break: normal;
+// }
 
-*, :after, :before {
-  -webkit-box-sizing: border-box; /*高宽不算padding,margin*/
-  -webkit-text-size-adjust: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
+// *, :after, :before {
+//   -webkit-box-sizing: border-box; /*高宽不算padding,margin*/
+//   -webkit-text-size-adjust: none;
+//   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+// }
 
-a, img {
-  -webkit-touch-callout: none; /*禁用长按弹出系统菜单*/
-}
+// a, img {
+//   -webkit-touch-callout: none; /*禁用长按弹出系统菜单*/
+// }
 
-a {
-  text-decoration: none;
-}
+// a {
+//   text-decoration: none;
+// }
 
-section, p, div {
-  max-height: 999999px;
-}
+// section, p, div {
+//   max-height: 999999px;
+// }
 
-textarea, input[type="password"], input[type="text"] {
-  resize: none; /*禁用可缩放*/
-  outline: none; /*禁用发光效果*/
-  -webkit-appearance: none; /*禁用增加外观效果*/
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  background: #fff;
-  overflow: scroll;
-}
+// textarea, input[type="password"], input[type="text"] {
+//   resize: none; /*禁用可缩放*/
+//   outline: none; /*禁用发光效果*/
+//   -webkit-appearance: none; /*禁用增加外观效果*/
+//   white-space: pre-wrap;
+//   word-wrap: break-word;
+//   background: #fff;
+//   overflow: scroll;
+// }

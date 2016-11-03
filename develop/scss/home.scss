@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+/*!
+ * project name: emtp_m_www
+ * name:         signin.scss
+ * version:      v0.0.1
+ * author:       gao
+ * date:         2016/11/3
+ */
+
+@mixin size($width, $height){
+	width: $width;
+	height: $height;
+}
+
+.navbar{
+	background: #000;
+}
+.page-header{
+	margin: 60px 20px 0px;
+}
+
+.home {
+	width:100%;
+	overflow-x: hidden;
+
+	#profile	{
+		margin-top: 60px;
+		height: 600px;
+	}
+}

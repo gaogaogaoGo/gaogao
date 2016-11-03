@@ -13,15 +13,16 @@
 	<title>页面登录</title>
 
 	<link rel="stylesheet" href="/css/signin.css">
+	<link rel="stylesheet" href="/js/vender/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-	<div class="global">
+	<div class="layout">
 		<div class="top">
 			<h1>App Sign In Form</h1>
 		</div>
 		<div class="signin">	
 			<div class="signin-cam"></div>
-			<div class="signin-input">
+			<!-- <div class="signin-input">
 				<img src="../img/icons.png">
 				<div class="input-top">
 					<input type="account" value="E-main address">
@@ -30,7 +31,27 @@
 				<div class="input-bottom">
 					<input type="password"  value="123456">
 				</div>							
-			</div>		
+			</div>	 -->	
+			
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label class="col-sm-4 control-label" for="account">E-main address</label>
+						 <div class="col-sm-6">
+							<input type="email" class="form-control " class="form-control" name="" placeholder="E-main address">
+						</div>
+						<div class="col-sm-2"></div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-4 control-label" for="password">Password</label>
+ 						<div class="col-sm-6">
+						<input type="password" class="form-control" name="" placeholder="123456">
+						</div>
+						<div class="col-sm-2"></div>
+					</div>
+				</form>
+		
+
 			<div class="sign-in">
 				<p>sign in</p>
 			</div>
@@ -45,6 +66,7 @@
 		</div>
 	</div>
 	<script src="/js/vender/jquery-2.1.1/jquery-2.1.1.js"></script>
+	<script src="/js/vender/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/js/signin.js"></script>
 
 

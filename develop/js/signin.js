@@ -18,18 +18,19 @@ var Signin = function(){
 		});
 
 		$('.sign-in').on('click', function() {
-			var account = $('.input-top input').val();
-			var password = $('.input-bottom input').val();
+			// var account = $('.input-top input').val();
+			// var password = $('.input-bottom input').val();
 
-			if(account === '' || password === ''){
-				alert('请输入账号密码');
-			}
-			else if(account === '123' && password === '123') {
-				window.location.href ='../html/index.html';
-			} 
-			else {
-				alert('请登录');
-			}
+			// if(account === '' || password === ''){
+			// 	alert('请输入账号密码');
+			// }
+			// else if(account === '123' && password === '123') {
+			// 	window.location.href ='../html/index.html';
+			// } 
+			// else {
+			// 	alert('请登录');
+			// }
+			window.location.href ='../html/home.html';
 		});
 	};
 };
